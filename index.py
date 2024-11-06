@@ -1,6 +1,3 @@
-daily_stock_price_list = [1,5,10,20,30,5]
-
-
 def max_profit(price_list):
     # check if the list has  less than 2 days and we just validate the case where there is no profitable buy options
     if len(price_list) < 2:
@@ -15,8 +12,23 @@ def max_profit(price_list):
     
     return profit
 
-# Example usage
-print(max_profit(daily_stock_price_list))  
+
+user_input = input('Enter elements of a list separated by space:\n')
+user_list = user_input.split()
+
+#validated list
+valid_user_input = []
+
+#  user input  validation
+for item in user_list:
+    if item.isdigit():  # lacks negative numbers
+        valid_user_input.append(int(item))
+    else:
+        print(f"'{item}' is not a valid integer.")
+
+result = max_profit(valid_user_input)
+print(result)
+
          
             
         
